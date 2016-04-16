@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="agendaEditor">
 <head>
 	<meta charset="UTF-8">
-	<title>Hello World AngularJS</title>
+	<title>Form AgendaEditor</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 	<script src="controller.js"></script>
 </head>
-<body ng-controller="myCtrl">
-	<h2>Hello World AngularJS</h2>
-	<input type="text" ng-model="myText">
-	{{myResult()}} 
+<body ng-controller="formCtrl">
+	<h2>Form AgendaEditor</h2>
+	<table>
+		<tr>
+			<td>Title</td>
+			<td>Name</td>
+			<td>Surname</td>
+			<td></td>
+		</tr>
+		<tr ng-repeat="item in list" ng-click="$last && addItem()">
+			<td><input type="text" ng-model="item.title"></td>
+			<td><input type="text" ng-model="item.name"></td>
+			<td><input type="text" ng-model="item.surname"></td>
+			<td ng-if="!$first"><button ng-click="list.splice($index, 1)">-</button></td>
+		</tr>
+	</table>
+	<button ng-click="addItem()">Add</button><br />
+	Wynik:
+	<div ng-repeat="item in myResult() track by $index">{{item}}<br /></div>
 </body>
 </html>
