@@ -1,6 +1,4 @@
-var app = angular.module('agendaEditor', []);
- 
-app.controller('formCtrl', function($scope) {
+app.controller('homeController', function($scope) {
 	$scope.list = [];
   
 	$scope.list.push({title: "", name: "", surname: ""});

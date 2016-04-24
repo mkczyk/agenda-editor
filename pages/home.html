@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<table class="table">
+				<tr>
+					<td>Title</td>
+					<td>Name</td>
+					<td>Surname</td>
+					<td></td>
+				</tr>
+				<tr ng-repeat="item in list" ng-click="$last && addItem()">
+					<td><input class="form-control" type="text" ng-model="item.title"></td>
+					<td><input class="form-control" type="text" ng-model="item.name"></td>
+					<td><input class="form-control" type="text" ng-model="item.surname"></td>
+					<td><button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="list.splice($index, 1)">-</button></td>
+				</tr>
+			</table>
+			<button type="button" class="btn btn-primary" ng-click="addItem()">Add</button><br />
+		</div>
+		<div class="col-sm-6">
+			<h3>Agenda</h3>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p ng-repeat="item in myResult() track by $index">{{item}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
