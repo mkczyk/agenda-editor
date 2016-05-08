@@ -9,11 +9,9 @@ angular.module('agendaEditor')
 	})
 
 	.controller('homeController', function($scope, Agenda) {
-		$scope.model = Agenda.model;
-		$scope.list = Agenda.list;
-		$scope.myResult = Agenda.myResult;
+		$scope.agenda = Agenda;
 		
 		$scope.addEmptyItem = function(){
-			$scope.list.push({title: "", name: "", surname: ""});
+			Agenda.list.push({title: "", name: "", surname: ""});
 		};
 	});

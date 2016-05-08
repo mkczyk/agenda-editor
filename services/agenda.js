@@ -2,15 +2,13 @@ app.service('Agenda', function () {
 	this.list = [];
 	this.list.push({title: "", name: "", surname: "", time: ""});
 	
-	this.model = {
-		'startTime': ""
-	};
+	this.startTime = "";
 
 	this.myResult = function () {
 		var result = [];
 		
-		if(this.model.startTime !== "") {
-			var lastTime = this.model.startTime;
+		if(this.startTime !== "") {
+			var lastTime = this.startTime;
 			for (var i = 0; i < this.list.length; i++) {
 				if(this.list[i].title !== "" && this.list[i].time  !== "" && this.list[i].time !== undefined){
 					var endTime = addTime(lastTime, this.list[i].time);
