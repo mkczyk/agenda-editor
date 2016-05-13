@@ -22,13 +22,20 @@
 						<td><input class="form-control" type="text" ng-model="item.surname"></td>
 						<td><input class="form-control" type="text" ng-model="item.time"></td>
 						<td>
-							<button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="list.splice($index, 1)">-</button>
-							<button class="btn btn-primary btn-xs handle">H</button>
+							<div class="btn-group">
+								<button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="list.splice($index, 1)">
+									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+								</button>
+								<button class="btn btn-primary btn-xs handle">H</button>
+							</div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<button type="button" class="btn btn-primary" ng-click="addEmptyItem()">Add</button><br />
+			<button type="button" class="btn btn-primary" ng-click="addEmptyItem()">
+				<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add
+			</button>
+			<br />
 		</div>
 		<div class="col-sm-4">
 			<h3>Agenda</h3>
