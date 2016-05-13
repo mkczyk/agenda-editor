@@ -35,10 +35,12 @@
 						</td>
 						<td>
 							<div class="btn-group">
-								<button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="list.splice($index, 1)">
+								<button ng-if="!$first" type="button" class="btn btn-danger" ng-click="list.splice($index, 1)" title="Delete item">
 									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
 								</button>
-								<button class="btn btn-primary btn-xs handle">H</button>
+								<button ng-if="agenda.list.length > 1" class="btn btn-primary handle" title="Sort item">
+									<i class="glyphicon glyphicon-resize-vertical"></i>
+								</button>
 							</div>
 						</td>
 					</tr>
