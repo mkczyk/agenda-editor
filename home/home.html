@@ -1,27 +1,55 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-			<div class="form-group col-sm-2 col-sm-offset-9">
-				<label>Start time</label>
-				<input type="text" class="form-control" ng-model="agenda.startTime">
+			<div class="pull-right">
+				<label for="form_start">Start time</label>
+				<input id="form_start" type="text" class="form-control" ng-model="agenda.startTime">
 			</div>
 			<table class="table">
-				<tr>
-					<td class="col-sm-5">Title</td>
-					<td class="col-sm-2">Name</td>
-					<td class="col-sm-2">Surname</td>
-					<td class="col-sm-2">Time</td>
-					<td class="col-sm-1"></td>
-				</tr>
-				<tr ng-repeat="item in agenda.list" ng-click="$last && addEmptyItem()">
-					<td><input class="form-control" type="text" ng-model="item.title"></td>
-					<td><input class="form-control" type="text" ng-model="item.name"></td>
-					<td><input class="form-control" type="text" ng-model="item.surname"></td>
-					<td><input class="form-control" type="text" ng-model="item.time"></td>
-					<td><button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="list.splice($index, 1)">-</button></td>
-				</tr>
+				<thead>
+					<tr>
+						<th class="col-sm-4">Title</th>
+						<th class="col-sm-2">Name</th>
+						<th class="col-sm-2">Surname</th>
+						<th class="col-sm-2">Time</th>
+						<th class="col-sm-2"></th>
+					</tr>
+				</thead>
+				<tbody dragula='"items-bag"' dragula-model='agenda.list'>
+					<tr ng-repeat="item in agenda.list" ng-click="$last && addEmptyItem()">
+						<td>
+							<label ng-attr-for="form_list_title_{{$index}}" class="sr-only">Title</label>
+							<input ng-attr-id="form_list_time_{{$index}}" class="form-control" type="text" ng-model="item.title">
+						</td>
+						<td>
+							<label ng-attr-for="form_list_name_{{$index}}" class="sr-only">Name</label>
+							<input ng-attr-id="form_list_name_{{$index}}" class="form-control" type="text" ng-model="item.name">
+						</td>
+						<td>
+							<label ng-attr-for="form_list_surname_{{$index}}" class="sr-only">Surname</label>
+							<input ng-attr-id="form_list_surname_{{$index}}" class="form-control" type="text" ng-model="item.surname">
+						</td>
+						<td>
+							<label ng-attr-for="form_list_time_{{$index}}" class="sr-only">Time</label>
+							<input ng-attr-id="form_list_time_{{$index}}" class="form-control" type="text" ng-model="item.time">
+						</td>
+						<td>
+							<div class="btn-group">
+								<button ng-if="!$first" type="button" class="btn btn-danger" ng-click="list.splice($index, 1)" title="Delete item">
+									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+								</button>
+								<button ng-if="agenda.list.length > 1" class="btn btn-primary handle" title="Sort item">
+									<i class="glyphicon glyphicon-resize-vertical"></i>
+								</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
 			</table>
-			<button type="button" class="btn btn-primary" ng-click="addEmptyItem()">Add</button><br />
+			<button type="button" class="btn btn-primary" ng-click="addEmptyItem()">
+				<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add
+			</button>
+			<br />
 		</div>
 		<div class="col-sm-4">
 			<h3>Agenda</h3>

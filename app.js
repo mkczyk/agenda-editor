@@ -1,4 +1,4 @@
-var app = angular.module('agendaEditor', ['ngRoute']);
+var app = angular.module('agendaEditor', ['ngRoute', angularDragula(angular)]);
 
 
 app.config(function($routeProvider) {
