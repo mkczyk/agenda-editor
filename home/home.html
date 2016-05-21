@@ -18,7 +18,7 @@
 					<td><input class="form-control" type="text" ng-model="item.name"></td>
 					<td><input class="form-control" type="text" ng-model="item.surname"></td>
 					<td><input class="form-control" type="text" ng-model="item.time"></td>
-					<td><button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="list.splice($index, 1)">-</button></td>
+					<td><button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="agenda.list.splice($index, 1)">-</button></td>
 				</tr>
 			</table>
 			<button type="button" class="btn btn-primary" ng-click="addEmptyItem()">Add</button><br />
