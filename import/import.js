@@ -8,6 +8,6 @@ angular.module('agendaEditor')
 			})
 	})
 	
-	.controller('importController', function($scope) {
-
+	.controller('importController', function($scope, Agenda) {
+		$scope.agenda = Agenda;
 	});
