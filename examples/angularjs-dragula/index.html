@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="agendaEditor">
+<head>
+	<meta charset="UTF-8">
+	<title>AgendaEditor</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-dragula/1.2.7/dragula.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-dragula/1.2.7/angular-dragula.min.js"></script>
+	<script src="app.js"></script>
+	<script src="services/agenda.js"></script>
+	<script src="home/home.js"></script>
+	<script src="result/result.js"></script>
+	<script src="import/import.js"></script>
+	<script src="about/about.js"></script>
+	
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AgendaEditor</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#home">Edytor</a></li>
+			<li><a href="#result">Wynik</a></li>
+            <li><a href="#import">Import/eksport</a></li>
+            <li><a href="#about">O aplikacji</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
+	<div id="main">
+		<div ng-view></div>
+	</div>
+	
+</body>
+</html>

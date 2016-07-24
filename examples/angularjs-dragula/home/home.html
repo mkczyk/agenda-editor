@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="form-group col-sm-2 col-sm-offset-9">
+				<label>Start</label>
+				<input type="text" class="form-control" ng-model="agenda.startTime" placeholder="hh:mm">
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<td class="col-sm-5">Tytuł</td>
+						<td class="col-sm-2">Imię</td>
+						<td class="col-sm-2">Nazwisko</td>
+						<td class="col-sm-2">Czas</td>
+						<td class="col-sm-1"></td>
+					</tr>
+				</thead>
+				<tbody dragula='"bag-one"' dragula-model="agenda.list">
+					<tr ng-repeat="item in agenda.list" ng-click="$last && addEmptyItem()" dragula-scope='$parent'>
+						<td><input class="form-control" type="text" ng-model="item.title"></td>
+						<td><input class="form-control" type="text" ng-model="item.name"></td>
+						<td><input class="form-control" type="text" ng-model="item.surname"></td>
+						<td><input class="form-control" type="text" ng-model="item.time" placeholder="hh:mm"></td>
+						<td><button ng-if="!$first" type="button" class="btn btn-danger btn-xs" ng-click="agenda.list.splice($index, 1)">-</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="button" class="btn btn-primary" ng-click="addEmptyItem()">Dodaj</button><br />
+		</div>
+		<div class="col-sm-4">
+			<h3>Agenda</h3>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<span ng-repeat="item in agenda.myResult() track by $index">{{item}}<br /></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
